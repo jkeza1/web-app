@@ -17,8 +17,8 @@ Unique Integer Processor is a simple web application that allows users to upload
 1. **Clone the Repository:**
 
    ```bash
-   git clone <repository-url>
-   cd <repository-directory>
+   git clone https://github.com/NiyonshutiDavid/app.git
+   cd app
    ```
 
 2. **Install Dependencies:**
@@ -26,7 +26,7 @@ Unique Integer Processor is a simple web application that allows users to upload
    Ensure you have Python 3.6+ and pip installed. Then, install the required packages:
 
    ```bash
-   pip install -r requirements.txt
+   pip install flask
    ```
 
 3. **Run the Application:**
