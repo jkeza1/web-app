@@ -34,7 +34,7 @@ Unique Integer Processor is a simple web application that allows users to upload
    Start the Flask application:
 
    ```bash
-   python app.py
+   python main.py
    ```
 
    The application will be available at `http://localhost:5000`.
@@ -69,19 +69,20 @@ app/
 │   ├── result.html
 ├── uploads/
 ├── results/
-├── app.py
+├── main.py
 ```
 
 - `templates/` contains the HTML files for the web interface.
 - `uploads/` is the directory where uploaded files are temporarily stored.
 - `results/` is the directory where processed files are saved.
-- `app.py` contains the main Flask application code.
+- `main.py` contains the main Flask application code.
 
 ## Dependencies
 
 - Flask
 - os
 - time
+- render_templates
 
 ## Developer
 
