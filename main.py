@@ -68,8 +68,8 @@ def upload_file():
         if file:
             unique_int_processor = UniqueInt()
             filename = file.filename
-            input_path = os.path.join('/root/app/uploads', filename)
-            output_path = os.path.join('/root/app/results', f"{filename}_processed.txt")
+            input_path = os.path.join('./uploads', filename)
+            output_path = os.path.join('./results', f"{filename}_processed.txt")
             file.save(input_path)
             start_time = time.time()
             unique_numbers = unique_int_processor.process_file(input_path)
@@ -83,7 +83,7 @@ def upload_file():
 
 @app.route('/download/<filename>')
 def download_file(filename):
-    response = make_response(send_from_directory('/root/app/results', filename))
+    response = make_response(send_from_directory('./results', filename))
     response.headers["Content-Disposition"] = f"attachment; filename={filename}"
     return response
 
