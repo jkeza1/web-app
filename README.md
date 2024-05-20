@@ -58,7 +58,7 @@ Unique Integer Processor is a simple web application that allows users to upload
 
 ### Available at Domain
 
-The application can also be accessed at developer domain [www.davidniyonshuti.tech](http://www.davidniyonshuti.tech).
+The application can also be accessed at developer domain [www.davidniyonshuti.tech](http://www.davidniyonshuti.tech)
 
 ## Project Structure
 
