@@ -34,7 +34,7 @@ Unique Integer Processor is a simple web application that allows users to upload
    Start the Flask application:
 
    ```bash
-   python main.py
+   ./main.py
    ```
 
    The application will be available at `http://localhost:5000`.
