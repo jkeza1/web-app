@@ -50,7 +50,8 @@ Unique Integer Processor is a simple web application that allows users to upload
 4. Once the file is processed, you will be redirected to a result page where you can download the processed file.
 
    ![Screenshot 2024-05-16 211545](https://github.com/NiyonshutiDavid/app/assets/144002340/3692a0df-9d2c-44df-8c1c-a858b4cee3ae)
-   ![image](https://github.com/NiyonshutiDavid/app/assets/144002340/0fadd919-7b76-4164-a5b8-ea665e61f1cb)
+   ![Screenshot 2024-05-22 165818](https://github.com/NiyonshutiDavid/app/assets/144002340/e10e2c2f-a9b7-4b61-9f66-ac4bd988cf5e)
+
 
 
 
