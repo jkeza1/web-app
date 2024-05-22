@@ -2,8 +2,12 @@
 from flask import Flask, render_template, request, send_from_directory, make_response
 import os
 import time
+import tracemalloc
 
 app = Flask(__name__)
+
+# Set the maximum upload size to 100 MB
+app.config['MAX_CONTENT_LENGTH'] = 100 * 1024 * 1024  # 100 MB
 
 @app.route('/')
 def index():
@@ -11,16 +15,20 @@ def index():
 
 class UniqueInt:
     def __init__(self):
+        # Initialize a boolean array to track seen integers
         self.seen = [False] * 2047
         self.min_int = -1023
 
     def process_file(self, input_file_path):
+        # Reset the seen array for each file
         self.seen = [False] * 2047
+        # Read and process unique integers from the file
         unique_numbers = self.read_unique_integers(input_file_path)
         return unique_numbers
 
     def read_unique_integers(self, input_file_path):
         unique_numbers = []
+        # Open the input file and read each line
         with open(input_file_path, 'r') as input_file:
             for line in input_file:
                 stripped_line = line.strip()
@@ -33,9 +41,11 @@ class UniqueInt:
                                 unique_numbers.append(number)
                         else:
                             print(f"Number out of range: {number}")
+        # Sort the unique numbers
         return self.sort_unique_numbers(unique_numbers)
 
     def is_valid_integer_line(self, line):
+        # Check if a line can be converted to an integer
         try:
             int(line)
             return True
@@ -44,6 +54,7 @@ class UniqueInt:
             return False
 
     def sort_unique_numbers(self, numbers):
+        # Custom bubble sort implementation
         if not numbers:
             return numbers
 
@@ -61,6 +72,7 @@ def upload_file():
     files = request.files.getlist('files')
     if len(files) == 0:
         return 'No selected files'
+
     processing_results = []
     for file in files:
         if file.filename == '':
@@ -68,17 +80,28 @@ def upload_file():
         if file:
             unique_int_processor = UniqueInt()
             filename = file.filename
-            input_path = os.path.join('./uploads', filename)
-            output_path = os.path.join('./results', f"{filename}_processed.txt")
+            input_path = os.path.join('./uploads', f"{filename}")
+            output_path = os.path.join('./results', f"{filename}_results.txt")
             file.save(input_path)
+            
+            tracemalloc.start()  # Start memory tracking
             start_time = time.time()
+            
             unique_numbers = unique_int_processor.process_file(input_path)
+            
             end_time = time.time()
+            current, peak = tracemalloc.get_traced_memory()
+            tracemalloc.stop()  # Stop memory tracking
+            
             with open(output_path, 'w') as output_file:
                 for number in unique_numbers:
                     output_file.write(f"{number}\n")
-            processing_info = f"Processed {filename} in {end_time - start_time:.4f} seconds. <a href='/download/{filename}_processed.txt'>Download processed file</a>"
+            
+            processing_info = f"Processed {filename} in {end_time - start_time:.4f} seconds. " \
+                              f"Memory usage: Current={current / 1024:.2f} KB, Peak={peak / 1024:.2f} KB. " \
+                              f"<a href='/download/{filename}_results.txt'>Download processed file</a>"
             processing_results.append(processing_info)
+    
     return render_template('result.html', processing_results=processing_results)
 
 @app.route('/download/<filename>')
@@ -88,5 +111,4 @@ def download_file(filename):
     return response
 
 if __name__ == "__main__":
-    app.run(debug=True)
-
+    app.run(debug=True, host='0.0.0.0', port=5000)
