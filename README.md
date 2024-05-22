@@ -89,6 +89,7 @@ app/
 - os
 - time
 - render_templates
+- tracemalloc
 
 ## Developer
 
