@@ -2,7 +2,7 @@
 
 ## Overview
 
-Unique Integer Processor is a simple web application that allows users to upload a text file containing integers. The application processes the file to identify and sort unique integers within a specified range. The processed results are then made available for download.
+Unique Integer Processor is a simple web application that allows users to upload a text file containing integers. The application processes the file to identify and sort unique integers within a specified range using bubble sort algorithm. The processed results are then made available for download.
 
 ## Features
 
