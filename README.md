@@ -17,7 +17,7 @@ Unique Integer Processor is a simple web application that allows users to upload
 1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/NiyonshutiDavid/app.git
+   git clone https://github.com/jkeza1/web-app.git
    cd app
    ```
 
@@ -64,7 +64,7 @@ Unique Integer Processor is a simple web application that allows users to upload
 
 ### Available at Domain
 
-The application can also be accessed at developer domain but now it is no longer available for work purposes [www.davidniyonshuti.tech](http://www.davidniyonshuti.tech)
+The application can also be accessed at developer domain but now it is no longer available for work purposes [www.jkeza1.tech](https://www.jkeza1.tech)
 
 ## Project Structure
 
@@ -93,11 +93,11 @@ app/
 
 ## Developer
 
-David Niyonshuti
+Joan Keza
 
 
 ## Contact
 
-For questions or feedback, please contact [David Niyonshuti](mailto:d.niyonshut@alustudent.com).
+For questions or feedback, please contact [Joan Keza](mailto:j.keza1@alustudent.com).
 
 This README provides clear instructions on how to set up, run, and use the application. It also includes information about the application's functionality and the structure of the project.
